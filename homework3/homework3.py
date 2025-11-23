@@ -19,3 +19,4 @@ if __name__ == "__main__":
     print(has_duplicates([1, 2, 3, 2]))
     print(is_warm(25))
 
+
