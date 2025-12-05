@@ -1,34 +1,32 @@
 class Book:
-    def __init__(self, author, title, book_id):
+    def __init__(self, author: str, title: str, book_id: int):
         self.author = author
         self.title = title
         self.book_id = book_id
 
-class Library:
-    def __init__(self, name):
-        self.name = name
-        self.books = []
+    def __str__(self):
+        return f"Book(id={self.book_id}, '{self.title}', {self.author})"
 
-    def add_book(self, book):
+    def __repr__(self):
+        return f"Book(author={self.author!r}, title={self.title!r}, book_id={self.book_id})"
+
+
+class Library:
+    def __init__(self, name: str):
+        self.name = name
+        self.books: list[Book] = []
+
+    def add_book(self, book: Book):
         self.books.append(book)
 
-    def remove_book(self, book_id):
+    def remove_book(self, book_id: int):
         for book in self.books:
             if book.book_id == book_id:
                 self.books.remove(book)
                 break
 
+    def __str__(self):
+        return f"Library '{self.name}' ({len(self.books)} книг)"
 
-book1 = Book("Толстой", "Война и мир", 1)
-book2 = Book("Достоевский", "Идиот", 2)
-
-library = Library("Городская библиотека")
-
-library.add_book(book1)
-library.add_book(book2)
-
-print(library.books)
-
-library.remove_book(1)
-
-print(library.books)
+    def __repr__(self):
+        return f"Library(name={self.name!r}, books={self.books!r})"
