@@ -2,12 +2,13 @@ from timer import timer
 import time
 
 @timer
-def slow_function():
-    time.sleep(3)
-    return "Done"
+def another_task():
+    time.sleep(2)
+    return "Another task done"
 
 if __name__ == "__main__":
-    print(slow_function())
+    print(another_task())
+
 
 
 
